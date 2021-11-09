@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var moviesRouter = require('./routes/movies');
 
 var app = express();
 
@@ -37,5 +38,25 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
+/* GET */
+app.get('/movies', (req, res) => {
+  res.json({
+    req: req.method,
+    data: "This is a GET"
+  })
+});
+
+/* PUT */
+app.put('/movies', (req, res) => {
+  res.json({
+    req: req.method,
+    data: "This is a PUT"
+  })
+});
+
+
 
 module.exports = app;
